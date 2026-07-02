@@ -1,0 +1,9 @@
+project: bc-gh
+# dc_fuzzer (from src/dc_fuzzer.c) — feeds the whole input as a dc PROGRAM to dc_main(): the real
+# dc RPN lexer, parser, and arbitrary-precision interpreter. Input is dc source text, not a file
+# path. Built with BC_ENABLE_OSSFUZZ=1 (stdin/tty machinery elided) + EXPR_EXIT off.
+target: dc_fuzzer
+
+cmds:
+  - cmd: /mayhem/dc_fuzzer
+    libfuzzer: true

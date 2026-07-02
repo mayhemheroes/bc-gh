@@ -1,0 +1,9 @@
+project: bc-gh
+# bc_fuzzer (from src/bc_fuzzer.c) — feeds the whole input as a bc PROGRAM to bc_main(): the real
+# bc lexer, parser, and arbitrary-precision interpreter. Input is calculator source text, not a file
+# path. Built with BC_ENABLE_OSSFUZZ=1 (stdin/tty machinery elided) + EXPR_EXIT off.
+target: bc_fuzzer
+
+cmds:
+  - cmd: /mayhem/bc_fuzzer
+    libfuzzer: true
